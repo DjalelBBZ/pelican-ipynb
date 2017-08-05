@@ -33,7 +33,7 @@ def notebook(preprocessor, tag, markup):
     end = int(end) if end else None
 
     # nb_dir =  preprocessor.configs.getConfig('NOTEBOOK_DIR')
-    nb_path = os.path.join('content', src)
+    nb_path = os.path.join(preprocessor.configs.getConfig('PATH'), src)
     content, info = get_html_from_filepath(nb_path, start=start, end=end)
     ignore_css = preprocessor.configs.getConfig('IPYNB_IGNORE_CSS', False)
     content = fix_css(content, info, ignore_css=ignore_css)
